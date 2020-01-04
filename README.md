@@ -5,6 +5,11 @@
 2. support 10bit and 12bit
 3. yuv444p10le (little edian)
 
+# prerequisites
+1. python 3
+2. numpy >= 1.17.0
+3. matplotlib (optional and only if you want to show the image in python script)
+
 # refenrence
 conversion matrix defined in itu rec.2020: https://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.2020-2-201510-I!!PDF-E.pdf
 extended in rec.2100: https://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.2100-2-201807-I!!PDF-E.pdf
