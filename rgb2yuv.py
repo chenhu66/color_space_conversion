@@ -13,8 +13,8 @@ def RGB2YUV( rgb, b=10 ):
     rgb/=scale
     
     m = np.array([[ 0.2256 , 0.5832 , 0.0509],
-                  [-0.1227, 0.3166, 0.4392],
-                  [ 0.4392, -0.4039 , -0.0353] ]).transpose
+                  [-0.1227, -0.3166, 0.4392],
+                  [ 0.4392, -0.4039 , -0.0353] ]).transpose()
     
     yuv = np.dot(rgb,m)
     yuv[:,:,0]+=16
@@ -77,7 +77,7 @@ with open(outfile, "wb") as f:
 #         plt.imshow(rgb/pow(2,10))
 #         plt.show()
         
-        yuv = YUV2RGB(rgb)
+        yuv = RGB2YUV(rgb)
         
 #         plt.imshow(yuv[:,:,0]/pow(2.0,b),cmap='gray')
 #         plt.show()

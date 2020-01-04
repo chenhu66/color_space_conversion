@@ -14,12 +14,12 @@ def RGB2YUV( rgb, b=10 ):
     
     m = np.array([[ 0.2256 , 0.5832 , 0.0509],
                   [-0.1227, 0.3166, 0.4392],
-                  [ 0.4392, -0.4039 , -0.0353] ]).transpose
+                  [ 0.4392, -0.4039 , -0.0353] ]).transpose()
     
     yuv = np.dot(rgb,m)
     yuv[:,:,0]+=16
     yuv[:,:,1]+=128
-    yuv[:,:,2]-=128
+    yuv[:,:,2]+=128
     
     yuv*=scale
     yuv = np.clip(yuv,0,pow(2,b)-1)
@@ -50,7 +50,7 @@ def YUV2RGB( yuv, b=10 ):
 
 ##############################
 # set these params 
-#############################
+##############################
 infile = 'data\\test_3840_2160_yuv44410le_2frames.yuv'
 outfile = 'output.rgb'
 w=3840
@@ -79,6 +79,8 @@ with open(outfile, "wb") as f:
         rgb = YUV2RGB(yuv)
         
 #         plt.imshow(rgb/pow(2.0,b))
+#         plt.show()
+#         plt.imshow(rgb[:,:,0]/pow(2.0,b),cmap='gray')
 #         plt.show()
         
         #save rgb
